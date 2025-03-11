@@ -1,0 +1,18 @@
+{% extends 'site_academia/base.html' %}
+
+{% block title %}Treinadores{% endblock %}
+
+{% block content %}
+<h1>Conheça nossos Treinadores</h1>
+<p>Veja quem está pronto para transformar seu treino e alcançar seus objetivos!</p>
+
+<div class="Treinadores-container">
+    {% for treinador in treinadores %}
+    <div class="treinador-card">
+        <img src="{{ treinador.foto.url }}" alt="{{ treinador.nome }}">
+        <h2>{{ treinador.nome }}</h2>
+        <p>{{ treinador.biografia }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

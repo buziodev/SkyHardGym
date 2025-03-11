@@ -1,0 +1,29 @@
+{% extends 'site_academia/base.html' %}
+
+{% load static %} 
+
+{% block title %}Home - Minha Academia{% endblock %}
+
+{% block content %}
+<section id="home">
+    <h1>Bem-vindo à Minha Academia!</h1>
+    <p>Transforme seu corpo, mente e saúde com nossos treinos especializados.</p>
+    
+    <img src="{% static 'images/treino1.png' %}" alt="Treino especializado" width="600">
+    <a href="{% url 'sobre' %}" class="saiba-mais">Saiba mais sobre nós</a>
+</section>
+
+<section id="clientes">
+    <h2>Clientes Cadastrados</h2>
+    {% if clientes %}
+        <ul>
+            {% for cliente in clientes %}
+                <li>{{ cliente.nome_completo }} - {{ cliente.email }} - plano: {{ cliente.plano }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Não há clientes cadastrados.</p>
+    {% endif %}
+</section>
+
+{% endblock %}
